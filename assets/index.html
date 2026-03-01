@@ -3,9 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>GITUSERFINDER</title>
-        <link rel="stylesheet" href="assets\style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>GitUserFinder!</h1>
+        <div class="topbar">
+            <form id="searchForm">
+                <input type="text" id="input" placeholder="SEARCH A GITHUB USERNAME">
+                <button id="search" type="submit">SUBMIT</button>
+            </form>
+        </div>
+        <div id="content"></div>
+
+        <script src="config.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
