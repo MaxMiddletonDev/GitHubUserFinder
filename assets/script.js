@@ -7,10 +7,14 @@ searchForm.addEventListener("submit", function(e) {
 
 async function fetchData() {
     const username = document.getElementById("input").value.trim();
-    const content = document.getElementById("content");
+    const profileCard = document.getElementById("profileCard");
+    const gitStats = document.getElementById("gitStats");
     const url = `https://api.github.com/users/${username}`;
 
+
     if(!username) {
+        profileCard.innerHTML = "";
+        gitStats.innerHTML = "";
         return;
     }
 
@@ -30,13 +34,24 @@ async function fetchData() {
         }
 
         const data = await response.json();
-        console.log(data)
 
-        content.innerHTML = `
-        <p>${data.login}</p>
+        profileCard.innerHTML = `
+            <img src="${data.avatar_url}" alt="${data.login}" class="pfp">
+            <h2>${data.login}</h2>
+            <h3>${data.name}</h3>
+            <p>${data.bio}</p>
+            <p>${data.location}</p>
+        `;
+
+        gitStats.innerHTML = `
+            <p> Followers: ${data.followers}</p>
+            <p> Following: ${data.following}</p>
+            <p> Repos: ${data.public_repos}</p>
         `;
 
     } catch (error) {
+        profileCard.innerHTML = "";
+        gitStats.innerHTML = "";
         console.error(error);
     }
 }
