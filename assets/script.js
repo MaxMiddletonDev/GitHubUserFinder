@@ -43,15 +43,15 @@ async function fetchData() {
         profileCard.innerHTML = `
             <img src="${data.avatar_url}" alt="${data.login}" id="pfp">
             <h2>${data.login}</h2>
-            <h3>${data.name}</h3>
-            <p>${data.bio}</p>
-            <p>${data.location}</p>
+            <h3>${data.name || " "}</h3>
+            <p>${data.bio || " "}</p>
+            <p>${data.location || " "}</p>
         `;
 
         gitStats.innerHTML = `
-            <p> Followers: ${data.followers}</p>
-            <p> Following: ${data.following}</p>
-            <p> Repos: ${data.public_repos}</p>
+            <p> Followers ${data.followers}</p>
+            <p> Following ${data.following}</p>
+            <p> Repos ${data.public_repos}</p>
         `;
 
     } catch (error) {
