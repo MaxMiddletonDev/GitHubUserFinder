@@ -36,7 +36,7 @@ async function fetchData() {
         const data = await response.json();
 
         profileCard.innerHTML = `
-            <img src="${data.avatar_url}" alt="${data.login}" class="pfp">
+            <img src="${data.avatar_url}" alt="${data.login}" id="pfp">
             <h2>${data.login}</h2>
             <h3>${data.name}</h3>
             <p>${data.bio}</p>
