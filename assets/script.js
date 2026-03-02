@@ -16,6 +16,7 @@ async function fetchData() {
     if(!username) {
         profileCard.innerHTML = "";
         gitStats.innerHTML = "";
+        content.style.display = "none";
         return;
     }
 
