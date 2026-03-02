@@ -2,6 +2,8 @@
     --background: #020412;
     --content: #1d0515;
     --accent: #370617;
+    --border: #4d0a1f;
+    --border-highlight: #bd2f3b;
     --text: #EEEEEE;
 }
 
@@ -16,15 +18,55 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;   
+    min-height: 90vh;
     margin: 0;
     padding: 20px;
 }
 
 #header {
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-bottom: 2rem;
+}
+
+#searchForm {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#input {
+    background: var(--content);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: none;
+    width: 250px;
+}
+
+#input:focus {
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+#search {
+    background: var(--content);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#input:hover, #search:hover {
+    filter: brightness(1.5);
+    border-color: var(--border-highlight);
 }
 
 #content {
@@ -33,12 +75,15 @@ body {
     justify-content: center;
     align-items: flex-start;
     background-color: var(--content);
-    max-width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    overflow: hidden;
     gap: 0;
 }
 
 #profileCard {
-    width: 11rem;
+    width: 20rem;
     background-color: var(--accent);
     display: flex;
     flex-direction: column;
@@ -52,13 +97,14 @@ body {
 
 #pfp {
    border-radius: 8px;
-   width: 10rem;
-   height: 10rem; 
+   width: 9rem;
+   height: 9rem; 
 }
 
 #profileData {
-    width: 25rem;
-    background-color: var(--accent);
+    flex-grow: 1;
+    padding: 1rem;
+    background-color: transparent;
 }
 
 #gitStats {
@@ -68,4 +114,22 @@ body {
     align-items: center;
     text-align: center;
     padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #profileCard {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #profileData {
+        width: 100%;
+    }
 }
