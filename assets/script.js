@@ -9,6 +9,7 @@ async function fetchData() {
     const username = document.getElementById("input").value.trim();
     const profileCard = document.getElementById("profileCard");
     const gitStats = document.getElementById("gitStats");
+    const content = document.getElementById("content");
     const url = `https://api.github.com/users/${username}`;
 
 
@@ -20,6 +21,7 @@ async function fetchData() {
 
     input.value = "";
 
+
     try {
         const response = await fetch(url, {
             headers: {
@@ -30,10 +32,12 @@ async function fetchData() {
         })
 
         if(!response.ok) {
+            contentDiv.style.display = "none";
             throw new Error("Could Not Find User")
         }
 
         const data = await response.json();
+        content.style.display = "flex";
 
         profileCard.innerHTML = `
             <img src="${data.avatar_url}" alt="${data.login}" id="pfp">
