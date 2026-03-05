@@ -33,7 +33,7 @@ async function fetchData() {
         })
 
         if(!response.ok) {
-            contentDiv.style.display = "none";
+            content.style.display = "none";
             throw new Error("Could Not Find User")
         }
 
